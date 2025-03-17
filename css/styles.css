@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 /* =================================================================== 
- * Hudson Main Stylesheet
+ * Abhinav Main Stylesheet
  * Template Ver. 1.0.0
  * 04-03-2023
  * ------------------------------------------------------------------
@@ -4367,6 +4367,10 @@ td:last-child {
 
 .ss-go-top svg path {
     fill: white;
+}
+
+.highlight {
+  background: linear-gradient(180deg,rgba(255,255,255,0) 50%, yellow 50%);
 }
 
 /* ------------------------------------------------------------------- 
