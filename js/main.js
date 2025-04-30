@@ -17,11 +17,11 @@
         if (!preloader) return;
 
         html.classList.add('ss-preload');
-        
+
         window.addEventListener('load', function() {
             html.classList.remove('ss-preload');
             html.classList.add('ss-loaded');
-            
+
             preloader.addEventListener('transitionend', function afterTransition(e) {
                 if (e.target.matches('#preloader'))  {
                     siteBody.classList.add('ss-show');
@@ -126,17 +126,17 @@
         window.addEventListener('scroll', navHighlight);
 
         function navHighlight() {
-        
+
             // Get current scroll position
             let scrollY = window.pageYOffset;
-        
+
             // Loop through sections to get height(including padding and border), 
             // top and ID values for each
             sections.forEach(function(current) {
                 const sectionHeight = current.offsetHeight;
                 const sectionTop = current.offsetTop - 50;
                 const sectionId = current.getAttribute('id');
-            
+
                /* If our current scroll position enters the space where current section 
                 * on screen is, add .current class to parent element(li) of the thecorresponding 
                 * navigation link, else remove it. To know which link is active, we use 
@@ -212,7 +212,7 @@
     const ssAlertBoxes = function() {
 
         const boxes = document.querySelectorAll('.alert-box');
-  
+
         boxes.forEach(function(box){
 
             box.addEventListener('click', function(e) {
@@ -281,16 +281,38 @@
         }
 
         const triggers = document.querySelectorAll('.smoothscroll');
-        
+
         const moveTo = new MoveTo({
-            tolerance: 0,
-            duration: 1200,
-            easing: 'easeInOutCubic',
+            tolerance: 50, // Increased tolerance for better positioning
+            duration: 400, // Significantly reduced duration for much faster scrolling
+            easing: 'easeOutQuad', // Changed to a faster easing function
             container: window
         }, easeFunctions);
 
         triggers.forEach(function(trigger) {
             moveTo.registerTrigger(trigger);
+        });
+
+        // Fix for blog section scrolling
+        const blogLinks = document.querySelectorAll('a[href="#blog"]');
+        blogLinks.forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const blogSection = document.getElementById('blog');
+                if (blogSection) {
+                    // Calculate offset considering the header height
+                    const headerHeight = document.querySelector('.s-header').offsetHeight;
+                    const offset = blogSection.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+
+                    // Scroll with minimal delay for faster response
+                    setTimeout(function() {
+                        window.scrollTo({
+                            top: offset,
+                            behavior: 'smooth'
+                        });
+                    }, 50);
+                }
+            });
         });
 
     }; // end ssMoveTo
@@ -308,6 +330,24 @@
         ssSwiper();
         ssAlertBoxes();
         ssMoveTo();
+
+        // Additional fix for blog section scrolling after window load
+        window.addEventListener('load', function() {
+            // Check if URL has blog hash
+            if (window.location.hash === '#blog') {
+                setTimeout(function() {
+                    const blogSection = document.getElementById('blog');
+                    if (blogSection) {
+                        const headerHeight = document.querySelector('.s-header').offsetHeight;
+                        const offset = blogSection.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                        window.scrollTo({
+                            top: offset,
+                            behavior: 'smooth'
+                        });
+                    }
+                }, 100);
+            }
+        });
 
     })();
 
