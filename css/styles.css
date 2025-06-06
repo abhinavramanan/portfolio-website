@@ -85,13 +85,6 @@
     --font-mono: Consolas, "Andale Mono", Courier, "Courier New", monospace;
 }
 
-/* Add native smooth scrolling as fallback with faster timing */
-html {
-    scroll-behavior: smooth;
-    /* Using a faster timing function for smoother, quicker scrolling */
-    scroll-behavior-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1.0);
-}
-
 /* ------------------------------------------------------------------- 
  * ## colors
  * ------------------------------------------------------------------- */
@@ -2685,16 +2678,10 @@ td:last-child {
 
 
 /* ===================================================================
-* # PROJECT-WIDE SHARED STYLES
-*
-*
-* ------------------------------------------------------------------- */
-
-/* Target sections for smooth scrolling */
-.target-section {
-    position: relative;
-    scroll-margin-top: 30px; /* Reduced margin for faster scrolling while still avoiding header overlap */
-}
+ * # PROJECT-WIDE SHARED STYLES
+ *
+ *
+ * ------------------------------------------------------------------- */
 .width-sixteen-col {
     --width-grid-max: var(--width-sixteen-cols);
 }
@@ -4151,33 +4138,10 @@ td:last-child {
 
 
 /* ===================================================================
-* # BLOG
-*
-*
-* ------------------------------------------------------------------- */
-.s-blog {
-    padding-top: var(--vspace-5);
-    padding-bottom: var(--vspace-2);
-    position: relative;
-    scroll-margin-top: 40px; /* Reduced margin for faster scrolling to blog section */
-}
-
-.s-blog__buttons {
-    margin-top: var(--vspace-1_25);
-}
-
-@media screen and (max-width: 800px) {
-    .s-blog {
-        padding-top: var(--vspace-4);
-        padding-bottom: var(--vspace-1_5);
-    }
-}
-
-/* ===================================================================
-* # NUMBERS
-*
-*
-* ------------------------------------------------------------------- */
+ * # NUMBERS
+ *
+ *
+ * ------------------------------------------------------------------- */
 .s-numbers {
     padding-top     : var(--vspace-5_5);
     padding-bottom  : var(--vspace-4);
