@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://abhinavramanan.me/sitemap.xml
+
+# Disallow crawling of certain file types that aren't content pages
+Disallow: /css/
+Disallow: /js/
+Disallow: /*.json
+
+# Allow crawling of main content pages
+Allow: /index.html
+Allow: /styles.html
+Allow: /404.html
+
+# Crawl-delay: Be respectful to small personal websites
+Crawl-delay: 1
