@@ -44,36 +44,6 @@ portfolio-website/
 ├── images/           # Image assets and portfolio items
 ├── favicon.ico       # Site favicon
 └── README.md         # This file
-```
-
-## 🚀 Local Development
-
-### Prerequisites
-- Git
-- A modern web browser
-- (Optional) Jekyll for local preview
-
-### Quick Start
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/abhinavramanan/portfolio-website.git
-   cd portfolio-website
-   ```
-
-2. **Open locally**
-   
-   Simply open `index.html` in your web browser to view the site locally.
-
-3. **Or use Jekyll (recommended for full GitHub Pages compatibility)**
-   ```bash
-   # Install Jekyll (if not already installed)
-   gem install jekyll bundler
-   
-   # Serve the site locally
-   jekyll serve
-   
-   # Visit http://localhost:4000
    ```
 
 ## 📧 Contact
